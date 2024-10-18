@@ -1,0 +1,56 @@
+.menu {
+  display: flex;
+  justify-content: right;
+}
+
+.reglog {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu .link {
+  list-style-type: none;
+  margin-right: 40px;
+}
+
+.menu .link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.color {
+  color: black;
+  text-decoration-thickness: 2px;
+}
+
+.link button {
+  color: black;
+  font-size: 15px;
+  border: none;
+  background: none;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.link button:hover {
+  cursor: pointer;
+}
+
+.link button::before {
+  margin-left: auto;
+}
+
+.link button::after,
+.link button::before {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #51a0e1;
+  display: block;
+  transition: 0.5s;
+}
+
+.link button:hover::after,
+.link button:hover::before {
+  width: 100%;
+}
