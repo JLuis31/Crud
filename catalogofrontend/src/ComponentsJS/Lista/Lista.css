@@ -1,85 +1,174 @@
-.contList {
-  margin-bottom: 10%;
+@media (min-width: 452px) {
+  .contList {
+    margin-bottom: 10px;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: auto;
+    margin-bottom: 10%;
+    margin-top: 5%;
+  }
+
+  .tblcontainer {
+    max-height: 500px;
+    width: 90%;
+    margin: auto;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+  }
+
+  caption {
+    margin-bottom: 20px;
+    margin-left: 5px;
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .id {
+    width: 40px;
+  }
+
+  .prodcutos {
+    width: 120px;
+  }
+
+  .fecha {
+    width: 100px;
+  }
+
+  table th {
+    background-color: rgb(52, 51, 51);
+  }
+
+  th {
+    color: white;
+  }
+
+  .acciones {
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+  }
+
+  .acciones:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+  .blur {
+    display: none;
+  }
+  .contAdd {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    width: 68%;
+  }
+
+  .contAdd p {
+    margin-bottom: 5px;
+  }
+
+  .contAdd button {
+    margin-bottom: -10px;
+    width: auto;
+  }
 }
 
-table {
-  border-collapse: collapse;
-  margin: auto;
-  margin-bottom: 10%;
-  margin-top: 5%;
-}
+@media (max-width: 451.99px) {
+  .contList {
+    margin-bottom: 10px;
+  }
 
-.tblcontainer {
-  max-height: 500px;
-  max-width: 1000px;
-  margin: auto;
+  table {
+    border-collapse: collapse;
+    margin: auto;
+    margin-bottom: 10%;
+    margin-top: 5%;
+  }
 
-  overflow-y: auto;
-  border: 1px solid #ccc;
-  margin-top: 10px;
-}
+  .tblcontainer {
+    max-height: 500px;
+    margin: auto;
+    width: 90%;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    margin-top: 5%;
+    margin-bottom: -40%;
+  }
 
-caption {
-  margin-bottom: 20px;
-  margin-left: 5px;
-  text-align: left;
-}
+  caption {
+    margin-bottom: 20px;
+    margin-left: 5px;
+    text-align: left;
+  }
 
-table th,
-table td {
-  padding: 10px;
-  text-align: center;
-}
+  table th,
+  table td {
+    padding: 10px;
+    text-align: center;
+  }
 
-.id {
-  width: 40px;
-}
+  .id {
+    width: 40px;
+  }
 
-.prodcutos {
-  width: 120px;
-}
+  .prodcutos {
+    width: 120px;
+  }
 
-.fecha {
-  width: 100px;
-}
+  .fecha {
+    width: 100px;
+  }
 
-table th {
-  background-color: rgb(52, 51, 51);
-}
+  table th {
+    background-color: rgb(52, 51, 51);
+  }
 
-th {
-  color: white;
-}
+  th {
+    color: white;
+  }
 
-.acciones {
-  padding: 8px;
-  border-radius: 10px;
-  border: none;
-}
+  .acciones {
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+  }
 
-.acciones:hover {
-  cursor: pointer;
-  opacity: 0.7;
-}
+  .acciones:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
 
-.blur {
-  display: none;
-}
-.contAdd {
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;
-  align-items: center;
-  margin: auto;
-  margin-top: 20px;
-  width: 68%;
-}
+  .blur {
+    display: none;
+  }
+  .contAdd {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    margin-top: 15%;
+    width: 68%;
+  }
 
-.contAdd p {
-  margin-bottom: 5px;
-}
+  .contAdd p {
+    margin-bottom: 5px;
+  }
 
-.contAdd button {
-  margin-bottom: -10px;
-  width: auto;
+  .contAdd button {
+    margin-bottom: -10px;
+    width: auto;
+  }
 }

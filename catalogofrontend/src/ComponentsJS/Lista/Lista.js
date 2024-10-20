@@ -1,5 +1,6 @@
 import "../Lista/Lista.css";
 import Form from "../Form/Form.js";
+import Footer from "../Footer/Footer.js";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -56,60 +57,63 @@ const Lista = () => {
   };
 
   return (
-    <div className="contList">
-      <Form data={data2}></Form>
-      <div className="contAdd">
-        {" "}
-        <p>CRUD</p>{" "}
-        <button onClick={Appear} className="formularioAppear">
-          Agregar / Cancelar
-        </button>
-      </div>
+    <div>
+      <div className="contList">
+        <Form data={data2}></Form>
+        <div className="contAdd">
+          {" "}
+          <p>CRUD</p>{" "}
+          <button onClick={Appear} className="formularioAppear">
+            Agregar / Cancelar
+          </button>
+        </div>
 
-      <div className="tblcontainer">
-        <table className={oldstate ? "blur" : ""} border="2px">
-          <caption>Tabla de Registros</caption>
+        <div className="tblcontainer">
+          <table className={oldstate ? "blur" : ""} border="2px">
+            <caption>Tabla de Registros</caption>
 
-          <thead>
-            <tr>
-              <th className="id">ID</th>
-              <th className="prodcutos">Nombre</th>
-              <th>Precio</th>
-              <th>Descripcion</th>
-              <th className="fecha">Fecha</th>
-              <th>Eliminar</th>
-              <th>Actualizar</th>
-            </tr>
-          </thead>
-          <tbody>
-            {productos.map((productos) => (
-              <tr key={productos.id}>
-                <td className="columns id">{productos.id}</td>
-                <td className="prodcutos">{productos.nombre}</td>
-                <td>$ {productos.precio.toFixed(2)}</td>
-                <td>{productos.descripcion}</td>
-                <td className="fecha">
-                  {new Date(productos.fecha).toLocaleDateString()}
-                </td>
-                <td>
-                  <button
-                    onClick={() => handleDelete(productos.id)}
-                    className="acciones"
-                  >
-                    Eliminar
-                  </button>
-                </td>
-                <td>
-                  <Link to={`/Actualizar/${productos.id}`}>
-                    {" "}
-                    <button className="acciones">Actualizar</button>
-                  </Link>
-                </td>
+            <thead>
+              <tr>
+                <th className="id">ID</th>
+                <th className="prodcutos">Nombre</th>
+                <th>Precio</th>
+                <th>Descripcion</th>
+                <th className="fecha">Fecha</th>
+                <th>Eliminar</th>
+                <th>Actualizar</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {productos.map((productos) => (
+                <tr key={productos.id}>
+                  <td className="columns id">{productos.id}</td>
+                  <td className="prodcutos">{productos.nombre}</td>
+                  <td>$ {productos.precio.toFixed(2)}</td>
+                  <td>{productos.descripcion}</td>
+                  <td className="fecha">
+                    {new Date(productos.fecha).toLocaleDateString()}
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => handleDelete(productos.id)}
+                      className="acciones"
+                    >
+                      Eliminar
+                    </button>
+                  </td>
+                  <td>
+                    <Link to={`/Actualizar/${productos.id}`}>
+                      {" "}
+                      <button className="acciones">Actualizar</button>
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

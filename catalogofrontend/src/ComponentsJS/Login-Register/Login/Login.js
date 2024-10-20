@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import Footer from "../../Footer/Footer.js";
 import { useNavigate } from "react-router-dom";
 import "../Login/Login.css";
 import axios from "axios";
@@ -37,47 +38,50 @@ const Login = function () {
     }
   };
   return (
-    <div className="contform">
-      <form onSubmit={handleSubmit}>
-        <div className="form-container">
-          <div className="form-content">
-            <p className="form-title">Iniciar Sesion</p>
-            <div className="contsincuenta">
-              <p className="first">No tienes cuenta?</p>
-              <Link to="/Register" className="linklogin">
-                <p> Crea una aqui</p>
-              </Link>
+    <div>
+      <div className="contform">
+        <form onSubmit={handleSubmit}>
+          <div className="form-container">
+            <div className="form-content">
+              <p className="form-title">Iniciar Sesion</p>
+              <div className="contsincuenta">
+                <p className="first">No tienes cuenta?</p>
+                <Link to="/Register" className="linklogin">
+                  <p> Crea una aqui</p>
+                </Link>
+              </div>
+              <div className="form-group">
+                <label className="form-label">Nombre de usuario</label>
+                <input
+                  required
+                  placeholder="Nombre:"
+                  className="form-input"
+                  id="username"
+                  type="text"
+                  value={usuario}
+                  onChange={(e) => setUsuario(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Contraseña</label>
+                <input
+                  required
+                  className="form-input"
+                  placeholder="Contraseña:"
+                  id="password"
+                  type="password"
+                  value={contraseña}
+                  onChange={(e) => setContraseña(e.target.value)}
+                />
+              </div>
+              <button type="submit" className="form-button">
+                Iniciar Sesion
+              </button>
             </div>
-            <div className="form-group">
-              <label className="form-label">Nombre de usuario</label>
-              <input
-                required
-                placeholder="Nombre:"
-                className="form-input"
-                id="username"
-                type="text"
-                value={usuario}
-                onChange={(e) => setUsuario(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label className="form-label">Contraseña</label>
-              <input
-                required
-                className="form-input"
-                placeholder="Contraseña:"
-                id="password"
-                type="password"
-                value={contraseña}
-                onChange={(e) => setContraseña(e.target.value)}
-              />
-            </div>
-            <button type="submit" className="form-button">
-              Iniciar Sesion
-            </button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
+      <Footer></Footer>
     </div>
   );
 };

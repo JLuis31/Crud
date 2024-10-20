@@ -1,4 +1,5 @@
 import "../Register/Register.css";
+import Footer from "../../Footer/Footer.js";
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -38,54 +39,57 @@ const Register = function () {
   };
 
   return (
-    <div className="contform">
-      <form onSubmit={handleSubmit}>
-        <div className="form-container">
-          <div className="form-content">
-            <p className="form-title">Crear cuenta</p>
-            <Link to="/Login" className="linklogin">
-              <p>Volver a inicio de sesion</p>
-            </Link>
-            <div className="form-group">
-              <label className="form-label">Nombre de usuario</label>
-              <input
-                required
-                placeholder="Nombre:"
-                className="form-input"
-                id="username"
-                type="text"
-                onChange={(e) => setNombre(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label className="form-label">Contraseña</label>
-              <input
-                required
-                className="form-input"
-                placeholder="Contraseña:"
-                id="password"
-                type="password"
-                onChange={(e) => setContraseña(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label className="form-label">Confirmar contraseña</label>
-              <input
-                required
-                className="form-input"
-                placeholder="Contraseña:"
-                id="confirmPassword"
-                type="password"
-                onChange={(e) => setConfirmarContraseña(e.target.value)}
-              />
-            </div>
+    <div>
+      <div className="contform">
+        <form onSubmit={handleSubmit}>
+          <div className="form-container">
+            <div className="form-content">
+              <p className="form-title">Crear cuenta</p>
+              <Link to="/Login" className="linklogin">
+                <p>Volver a inicio de sesion</p>
+              </Link>
+              <div className="form-group">
+                <label className="form-label">Nombre de usuario</label>
+                <input
+                  required
+                  placeholder="Nombre:"
+                  className="form-input"
+                  id="username"
+                  type="text"
+                  onChange={(e) => setNombre(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Contraseña</label>
+                <input
+                  required
+                  className="form-input"
+                  placeholder="Contraseña:"
+                  id="password"
+                  type="password"
+                  onChange={(e) => setContraseña(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Confirmar contraseña</label>
+                <input
+                  required
+                  className="form-input"
+                  placeholder="Contraseña:"
+                  id="confirmPassword"
+                  type="password"
+                  onChange={(e) => setConfirmarContraseña(e.target.value)}
+                />
+              </div>
 
-            <button type="submit" className="form-button">
-              Crear cuenta
-            </button>
+              <button type="submit" className="form-button">
+                Crear cuenta
+              </button>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
+      <Footer></Footer>
     </div>
   );
 };

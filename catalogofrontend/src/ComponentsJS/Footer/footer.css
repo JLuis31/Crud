@@ -1,0 +1,213 @@
+@media (min-width: 630px) {
+  footer {
+    margin-top: 700px;
+  }
+  .contenedorfooter {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #393939;
+    padding: 5% 10%;
+    padding-right: 0;
+    padding-left: 0;
+    color: white;
+    height: 150px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .izqinfo {
+    padding-left: 30px;
+  }
+  .nombrepagina {
+    font-size: 20px;
+  }
+  .derinfo p {
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .derinfo {
+    display: flex;
+    width: 50%;
+  }
+
+  .derinfo ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .listaf {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    padding: 10px;
+  }
+  .derinfo ul li {
+    margin: auto;
+    padding: 5px;
+    list-style: none;
+    font-size: 11px;
+  }
+
+  .listaf li:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .listaf h2 {
+    margin-top: 0;
+  }
+
+  .contlista {
+    margin-left: 10%;
+    margin-right: 5%;
+  }
+
+  .contlista3 {
+    margin-right: 0;
+  }
+
+  .imagenesfooter {
+    display: flex;
+    gap: 20px;
+    height: 20px;
+  }
+
+  .imagenesfooter a img {
+    height: 20px;
+  }
+
+  .imagenesfooter img:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .btnfooter {
+    display: flex;
+    margin-top: 30px;
+    width: auto;
+  }
+
+  .btnfooter button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 7px 9px;
+    border-radius: 10px;
+    border: none;
+    font-size: 10px;
+    margin-right: 5px;
+    width: 110px;
+  }
+
+  .btnfooter button img {
+    height: 20px;
+    width: auto;
+  }
+  .btnfooter button:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
+  .btnfooter p {
+    font-weight: normal;
+    margin: auto;
+    margin-left: 5px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 629.99px) {
+  footer {
+    margin-top: 650px;
+  }
+  .contenedorfooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #393939;
+    padding: 5% 10%;
+    padding-right: 0;
+    color: white;
+    height: 780px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .izqinfo ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .listaf p {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .izqinfo ul li {
+    margin: 0;
+    padding: 5px;
+    list-style: none;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  .listaf li:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .contlista2 .listaf {
+    margin-top: 70px;
+  }
+
+  .contlista3 .listaf {
+    margin-top: 70px;
+  }
+
+  .imagenesfooter {
+    display: flex;
+    gap: 20px;
+    height: 20px;
+  }
+  .imagenesfooter a img {
+    height: 20px;
+  }
+
+  .imagenesfooter img:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .btnfooter {
+    display: block;
+    margin-top: 10%;
+    margin-bottom: 50px;
+  }
+  .btnfooter button img {
+    height: 20px;
+    width: auto;
+  }
+
+  .btnfooter button:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+  .btnfooter button {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    width: auto;
+    margin-right: 20px;
+    padding: 2% 3%;
+    border-radius: 5px;
+    border: none;
+    font-size: 10px;
+  }
+  .btnfooter p {
+    font-weight: normal;
+    margin: auto;
+    margin-left: 5px;
+    font-size: 10px;
+  }
+}
