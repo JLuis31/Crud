@@ -276,7 +276,6 @@ C:\Users\garci\Catalogo\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Jwt
 C:\Users\garci\Catalogo\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
 C:\Users\garci\Catalogo\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
 C:\Users\garci\Catalogo\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
-C:\Users\garci\Catalogo_Crud\Catalogo\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\garci\Catalogo_Crud\Catalogo\bin\Debug\net8.0\appsettings.json
 C:\Users\garci\Catalogo_Crud\Catalogo\bin\Debug\net8.0\Catalogo.exe
 C:\Users\garci\Catalogo_Crud\Catalogo\bin\Debug\net8.0\Catalogo.deps.json
@@ -417,3 +416,4 @@ C:\Users\garci\Catalogo_Crud\Catalogo\obj\Debug\net8.0\refint\Catalogo.dll
 C:\Users\garci\Catalogo_Crud\Catalogo\obj\Debug\net8.0\Catalogo.pdb
 C:\Users\garci\Catalogo_Crud\Catalogo\obj\Debug\net8.0\Catalogo.genruntimeconfig.cache
 C:\Users\garci\Catalogo_Crud\Catalogo\obj\Debug\net8.0\ref\Catalogo.dll
+C:\Users\garci\Catalogo_Crud\Catalogo\obj\Debug\net8.0\Catalogo.sourcelink.json
