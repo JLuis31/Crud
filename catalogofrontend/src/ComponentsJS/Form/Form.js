@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "../Form/Form.css";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../Interceptor/authService";
 
 const ProductoForm = (props) => {
   const Navigate = useNavigate();
@@ -11,19 +11,19 @@ const ProductoForm = (props) => {
   const [error, setError] = useState("");
   const [oldstate, setoldstate] = useState(props.data);
   const [fecha, setFecha] = useState(new Date().toISOString().split("T")[0]);
-  const token = localStorage.getItem("token");
 
   useEffect(() => {
     setoldstate(props.data);
   }, [props.data]);
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+
     if (!token) {
-      alert("Inicie Sesion.");
+      alert("Inicie Sesión.");
       return Navigate("/Login");
     }
-
-    e.preventDefault();
 
     const nuevoProducto = {
       nombre,
@@ -33,34 +33,33 @@ const ProductoForm = (props) => {
     };
 
     try {
-      const response = await axios.post(
-        "https://localhost:7211/api/productos",
-        nuevoProducto,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const response = await axiosInstance.post("productos", nuevoProducto);
 
-      alert("Prodcuto agregado con exito.");
-      window.location.reload();
-      console.log("Producto agregado:", response.data);
+      alert("Producto agregado con éxito.");
+
       setNombre("");
       setPrecio("");
       setDescripcion("");
-      setFecha(new Date().toISOString().split("T")[0]);
       setError("");
+      window.location.reload();
     } catch (error) {
-      console.error("Error al agregar el producto", error);
-      setError("Error al agregar el producto.");
+      console.error(
+        "Error al agregar el producto",
+        error.response ? error.response.data : error
+      );
+      setError(
+        "Error al agregar el producto: " +
+          (error.response ? error.response.data.message : "Error desconocido.")
+      );
     }
   };
 
   return (
     <div className="cont">
-      {oldstate === true ? (
+      {oldstate === true && (
         <form onSubmit={handleSubmit}>
           <h2>Agregar Producto</h2>
-          {error && <p style={{ color: "red" }}>{error}</p>}{" "}
+          {error && <p style={{ color: "red" }}>{error}</p>}
           <div className="inputs">
             <label>Nombre: </label>
             <input
@@ -68,9 +67,9 @@ const ProductoForm = (props) => {
               type="text"
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
-              class="input"
+              className="input"
               placeholder="Nombre..."
-            ></input>
+            />
           </div>
           <div className="inputs">
             <label>Precio: </label>
@@ -79,31 +78,29 @@ const ProductoForm = (props) => {
               type="number"
               value={precio}
               onChange={(e) => setPrecio(e.target.value)}
-              class="input"
+              className="input"
               placeholder="Precio..."
-            ></input>
+            />
           </div>
           <div className="inputs">
-            <label>Descripcion:</label>
+            <label>Descripción:</label>
             <input
               required
               type="text"
               value={descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
-              class="input"
-              placeholder="Descripcion..."
-            ></input>
+              className="input"
+              placeholder="Descripción..."
+            />
           </div>
           <div className="inputs">
             <label>Fecha:</label>
-            <input disabled type="date" value={fecha} class="input"></input>
+            <input disabled type="date" value={fecha} className="input" />
           </div>
           <div className="contButton">
             <button type="submit">Confirmar</button>
           </div>
         </form>
-      ) : (
-        ""
       )}
     </div>
   );

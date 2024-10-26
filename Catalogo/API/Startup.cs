@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Catalogo.Infrastructure.Data;
 using System.Net.Http;
 using System.Globalization;
+using System; 
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -41,25 +42,27 @@ namespace Catalogo
            
             var key = Encoding.ASCII.GetBytes(Configuration["Jwt:Key"]); 
             
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(x =>
-            {
-                x.RequireHttpsMetadata = true;
-                x.SaveToken = true;
-                x.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = true,
-                    ValidIssuer = Configuration["Jwt:Issuer"],
-                    ValidateAudience = true,
-                    ValidAudience = Configuration["Jwt:Audience"] 
-                };
-            });
+           services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(x =>
+{
+    x.RequireHttpsMetadata = true;
+    x.SaveToken = true;
+    x.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = true,
+        ValidIssuer = Configuration["Jwt:Issuer"],
+        ValidateAudience = true,
+        ValidAudience = Configuration["Jwt:Audience"],
+        ValidateLifetime = true, // Validar la expiración del token
+        ClockSkew = TimeSpan.Zero // Eliminar desviación de tiempo
+    };
+});
 
        
             services.AddAuthorization();

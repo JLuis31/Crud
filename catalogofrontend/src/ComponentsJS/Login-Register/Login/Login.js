@@ -3,40 +3,48 @@ import React, { useState } from "react";
 import Footer from "../../Footer/Footer.js";
 import { useNavigate } from "react-router-dom";
 import "../Login/Login.css";
-import axios from "axios";
+import axiosInstance from "../../Interceptor/authService.js";
+import CirrcularProgress from "@mui/material/CircularProgress";
 
 const Login = function () {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "https://localhost:7211/api/auth/login",
-        {
-          Nombre: usuario,
-          Contraseña: contraseña,
-        }
-      );
+      const response = await axiosInstance.post(`auth/login`, {
+        Nombre: usuario,
+        Contraseña: contraseña,
+      });
 
-      const token = response.data.token;
-      if (response.status === 200 && response.data) {
+      console.log("Respuesta completa del servidor:", response.data);
+
+      const token = response.data.accessToken;
+      if (token) {
         localStorage.setItem("token", token);
+        localStorage.setItem("refreshToken", response.data.refreshToken);
         const { nombre } = response.data;
         localStorage.setItem("usuario", JSON.stringify(nombre));
-
         alert("Login exitoso.");
-        Navigate("/");
+
+        navigate("/");
       } else {
-        console.log("Incorrecto");
+        console.log("Token no recibido.");
       }
     } catch (error) {
-      alert("Usuario o Contraseña incorrectos.");
-      console.log("Error al iniciar sesión: ", error);
+      if (error.response) {
+        console.log("Error de respuesta del servidor:", error.response.data);
+        alert("Error: " + error.response.data.message);
+      } else {
+        console.log("Error de conexión:", error.message);
+        alert("Error de conexión. Inténtalo de nuevo.");
+      }
     }
   };
+
   return (
     <div>
       <div className="contform">
@@ -81,7 +89,7 @@ const Login = function () {
           </div>
         </form>
       </div>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };

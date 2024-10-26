@@ -14,7 +14,9 @@ using System.Linq;
 
 namespace Catalogo.API.Controllers
 {
-    [Route("api/[controller]")]
+   
+   [Authorize]
+   [Route("api/[controller]")]
     [ApiController]
     public class ProductosController : ControllerBase
     {

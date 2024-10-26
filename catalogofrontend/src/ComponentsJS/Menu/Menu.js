@@ -6,6 +6,7 @@ const Menu = function () {
   const Navigate = useNavigate();
   const handleCerrar = function () {
     localStorage.removeItem("token");
+    localStorage.removeItem("refreshToken");
     Navigate("/login");
   };
 
